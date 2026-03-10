@@ -3,7 +3,6 @@
 
 function __insulter_print_message
     set color 0
-    set freq 1
     set messages \
         '¯\_(ツ)_/¯'\
         'What is this...? Amateur hour!?'\
@@ -120,22 +119,17 @@ function __insulter_print_message
     # Seed RANDOM with an integer of some length
     set RANDOM (random)
 
-    test -n "$COMMENT_FREQ" && set freq $COMMENT_FREQ
     # Compatiblity with bash-insulter
     test -n "$CMD_NOT_FOUND_MSGS" && set messages $CMD_NOT_FOUND_MSGS
     test -n "$CMD_NOT_FOUND_MSGS_APPEND" && set -a messages $CMD_NOT_FOUND_MSGS_APPEND
 
     test -n "$COMMENT_COLOR" && set color $COMMENT_COLOR
     if [ $color = 0 ];
-        set color (random 1 255)
+        set color (random 1 100)
     end
 
-    # Print a randomly selected message, but only about half the time to annoy the user a
-    # little bit less.
-    if test (math $RANDOM % 10) -lt $freq;
-        set message $messages[(math \( $RANDOM % (count $messages) \) + 1)]
-        printf "\\n  %s\\n\\n" "$(tput bold)$(tput setaf $color)$message$(tput sgr0)" >&2
-    end
+    set message $messages[(math \( $RANDOM % (count $messages) \) + 1)]
+    printf "\\n  %s\\n\\n" "$(tput bold)$(tput setaf $color)$message$(tput sgr0)" >&2
 end
 
 function fish_command_not_found
