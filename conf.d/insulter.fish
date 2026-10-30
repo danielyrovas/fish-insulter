@@ -2,10 +2,8 @@
 # Inspiration: https://github.com/hkbakke/bash-insulter
 
 function __insulter_print_message
-    set color 0
     set messages \
         '¯\_(ツ)_/¯'\
-        'What is this...? Amateur hour!?'\
         "(╯°□°）╯︵ ┻━┻"\
         "ACHTUNG! ALLES TURISTEN UND NONTEKNISCHEN LOOKENPEEPERS! DAS KOMPUTERMASCHINE IST NICHT FÜR DER GEFINGERPOKEN UND MITTENGRABEN! ODERWISE IST EASY TO SCHNAPPEN DER SPRINGENWERK, BLOWENFUSEN UND POPPENCORKEN MIT SPITZENSPARKEN. IST NICHT FÜR GEWERKEN BEI DUMMKOPFEN. DER RUBBERNECKEN SIGHTSEEREN KEEPEN DAS COTTONPICKEN HÄNDER IN DAS POCKETS MUSS. ZO RELAXEN UND WATSCHEN DER BLINKENLICHTEN."\
         "Allowing you to survive childbirth was medical malpractice."\
@@ -116,20 +114,8 @@ function __insulter_print_message
         "Your mind just hasn't been the same since the electro-shock, has it?"\
         "Your mom had a severe case of diarrhea when you were born."\
 
-    # Seed RANDOM with an integer of some length
-    set RANDOM (random)
-
-    # Compatiblity with bash-insulter
-    test -n "$CMD_NOT_FOUND_MSGS" && set messages $CMD_NOT_FOUND_MSGS
-    test -n "$CMD_NOT_FOUND_MSGS_APPEND" && set -a messages $CMD_NOT_FOUND_MSGS_APPEND
-
-    test -n "$COMMENT_COLOR" && set color $COMMENT_COLOR
-    if [ $color = 0 ];
-        set color (random 1 100)
-    end
-
-    set message $messages[(math \( $RANDOM % (count $messages) \) + 1)]
-    printf "\\n  %s\\n\\n" "$(tput bold)$(tput setaf $color)$message$(tput sgr0)" >&2
+    set message (random choice $messages)
+    printf "\\n  %s\\n\\n" "$(tput bold)$(tput setaf (random 1 100))$message$(tput sgr0)" >&2
 end
 
 function fish_command_not_found

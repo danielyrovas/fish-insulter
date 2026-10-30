@@ -66,37 +66,6 @@ sudo cp fish-insulter/conf.d/insulter.fish /etc/fish/conf.d/
 
 Open a new Fish shell instance to enjoy the insults! 
 
-### Customization
-The Fish-Insulter allows for easy customization using environment variables, offering control over the insults' content, frequency, and appearance. These variables can be set in your `config.fish` file or created in a file within the `conf.d` directory of your Fish configuration folder.
-
-#### Available Environment Variables:
-
-- **`CMD_NOT_FOUND_MSGS`**: Custom messages to replace the default insult list.
-
-- **`CMD_NOT_FOUND_MSGS_APPEND`**: Additional messages to complement the existing insult list.
-
-- **`COMMENT_FREQ`**: Sets the frequency of insults. A value of `0` means never, `5` implies about half the time, and `10` triggers an insult every time. (Default: `4`)
-
-- **`COMMENT_COLOR`**: Specifies the text color printed with a number from 1 to 255. Using `0` results in a random color for added enjoyment. (Default: `0`)
-
-#### Configuration Steps:
-
-1. **For `config.fish`**:
-   
-   Open your `config.fish` file using a text editor and add or modify the desired environment variables in the following format:
-   ```fish
-   set -gx CMD_NOT_FOUND_MSGS "Your custom insult messages here"
-   set -gx CMD_NOT_FOUND_MSGS_APPEND "Additional insults to append"
-   set -gx COMMENT_FREQ 5
-   set -gx COMMENT_COLOR 123
-   ```
-
-2. **For `conf.d` Directory**:
-   
-   Create a new file (e.g., `insulter-customization.fish`) within your Fish configuration's `conf.d` directory. Inside this file, define the environment variables in the same format as above.
-
-Ensure to replace the values with your preferred messages, frequencies, or colors as desired.
-
 ## Future enhancements 
 - **Angel Mode**: A kinder, supportive alternative.
 - Improved customization options for a tailored experience.
