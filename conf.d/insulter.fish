@@ -115,7 +115,9 @@ function __insulter_print_message
         "Your mom had a severe case of diarrhea when you were born."\
 
     set message (random choice $messages)
-    printf "\\n  %s\\n\\n" "$(tput bold)$(tput setaf (random 1 100))$message$(tput sgr0)" >&2
+    set -l color (printf '%06x' (random 0 16777215))
+    set -q insulter_color; and set color $insulter_color
+    printf "\n  %s%s%s\n\n" (set_color --bold $color) $message (set_color normal) >&2
 end
 
 function fish_command_not_found

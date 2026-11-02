@@ -38,35 +38,37 @@ fish: Unknown command: f
 
 ## Installation
 
-### Using Package Managers
+For [Fisher](https://github.com/jorgebucaran/fisher) users:
+```fish
+fisher install danielyrovas/fish-insulter
+```
 
 For [Oh My Fish (omf)](https://github.com/oh-my-fish/oh-my-fish) users:
 ```fish
-omf install https://github.com/Alaz-Oz/fish-insulter
+omf install https://github.com/danielyrovas/fish-insulter
 ```
 
-For [Fisher](https://github.com/jorgebucaran/fisher) users:
-```fish
-fisher install Alaz-Oz/fish-insulter
-```
-
-### Manual Installation
+<details>
+<summary>Manual Installation</summary>
 
 For Single User:
 ```fish
-git clone https://github.com/Alaz-Oz/fish-insulter.git fish-insulter
+git clone https://github.com/danielyrovas/fish-insulter.git fish-insulter
 cp fish-insulter/conf.d/insulter.fish ~/.config/fish/conf.d/
 ```
 
-For All Users (not recommended):
+</details>
+
+Open a new Fish shell instance to enjoy the insults!
+
+## Configuration
+
+- **`insulter_color`**: text colour, a name (`brred`, `magenta`) or hex (`ff8800`). Unset gives a random colour.
 ```fish
-sudo git clone https://github.com/Alaz-Oz/fish-insulter.git fish-insulter
-sudo cp fish-insulter/conf.d/insulter.fish /etc/fish/conf.d/
+set -U insulter_color brred
 ```
 
-Open a new Fish shell instance to enjoy the insults! 
-
-## Future enhancements 
+## Future enhancements
 - **Angel Mode**: A kinder, supportive alternative.
 - Improved customization options for a tailored experience.
 
@@ -76,4 +78,4 @@ Open a new Fish shell instance to enjoy the insults!
 ### Contribution and Feedback
 We appreciate your input! If you have ideas to enhance this project or encounter any issues, please raise an issue or submit a pull request.
 
-Remember, it's all in good fun! 😉 Feel free to drop by and say hi to `AlazOz`.
+Remember, it's all in good fun! 😉 Feel free to drop by and say hi.
